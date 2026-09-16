@@ -48,19 +48,43 @@ internal class Border(
             }
             when (arrangement) {
 
-                Arrangement.FULL -> add(buildBorderLine())
+                Arrangement.FULL -> {
+                    add(buildBorderLine())
+                    add(addLeftSide())
+                    add(addRightSide())
+                }
 
-                Arrangement.VERTICAL -> add(buildVerticalLine())
+                Arrangement.VERTICAL -> {
+                    add(buildVerticalLine())
+                    add(addLeftSide())
+                    add(addRightSide())
+                }
 
-                Arrangement.HORIZONTAL -> add(buildHorizontalLine())
+                Arrangement.HORIZONTAL -> {
+                    add(buildHorizontalLine())
+                    add(addTopSide())
+                    add(addBottomSide())
+                }
 
-                Arrangement.RIGHT -> add(buildRightLine())
+                Arrangement.RIGHT -> {
+                    add(buildRightLine())
+                    add(addRightSide())
+                }
 
-                Arrangement.LEFT -> add(buildLeftLine())
+                Arrangement.LEFT -> {
+                    add(buildLeftLine())
+                    add(addLeftSide())
+                }
 
-                Arrangement.TOP -> add(buildTopLine())
+                Arrangement.TOP -> {
+                    add(buildTopLine())
+                    add(addTopSide())
+                }
 
-                Arrangement.BOTTOM -> add(buildBottomLine())
+                Arrangement.BOTTOM -> {
+                    add(buildBottomLine())
+                    add(addBottomSide())
+                }
 
                 else -> throw BorderException("apalah coba")
             }
@@ -68,6 +92,15 @@ internal class Border(
         }
     }
 
+
+// -----------------------------------------------------------
+// border builder method
+//
+//
+
+// full border line
+//
+//
     fun buildBorderLine(): RawContent {
         return RawContent().apply {
             add(buildHorizontalLine().content)
@@ -82,7 +115,7 @@ internal class Border(
     fun buildHorizontalLine(): RawContent {
 
         val horizontalLine = charHorizontal.toString().repeat(width)
-        
+
         return RawContent().apply {
             add(cursorNav.moveTo(Offset(1, 1)))
             add(horizontalLine)
@@ -145,7 +178,7 @@ internal class Border(
             var tmpRowsLoc = height
             do {
                 rawContent.add(
-                    cursorNav.moveTo(Offset(tmpRowsLoc, 1)).plus(charBorder)
+                    cursorNav.moveTo(Offset(tmpRowsLoc, 1)).plus(charVertical)
                 )
                 tmpRowsLoc--
             } while (!tmpRowsLoc.equals(0))
@@ -164,7 +197,7 @@ internal class Border(
             var tmpRowsLoc = height
             do {
                 rawContent.add(
-                    cursorNav.moveTo(Offset(tmpRowsLoc, width)).plus(charBorder)
+                    cursorNav.moveTo(Offset(tmpRowsLoc, width)).plus(charVertical)
                 )
                 tmpRowsLoc--
             } while (!tmpRowsLoc.equals(0))
@@ -172,6 +205,62 @@ internal class Border(
         } catch (exception: BorderException) {
             println("")
             throw exception
+        }
+    }
+
+// -----------------------------------------------------------
+// side char border
+//
+//
+
+// add left side
+//
+//
+    fun addLeftSide(): RawContent {
+        return RawContent().apply {
+            add(cursorNav.moveTo(Offset(1, 1)))
+            add(charTopLeft)
+            add(cursorNav.moveTo(Offset(height, 1)))
+            add(charBottomLeft)
+        }
+    }
+
+
+// add right side
+//
+//
+    fun addRightSide(): RawContent {
+        return RawContent().apply {
+            add(cursorNav.moveTo(Offset(1, width)))
+            add(charTopRight)
+            add(cursorNav.moveTo(Offset(height, width)))
+            add(charBottomRight)
+        }
+    }
+
+
+// add top side
+//
+//
+    fun addTopSide(): RawContent {
+        return RawContent().apply {
+            add(cursorNav.moveTo(Offset(1, 1)))
+            add(charTopLeft)
+            add(cursorNav.moveTo(Offset(1, width)))
+            add(charTopRight)
+        }
+    }
+
+
+// add bottom side
+//
+//
+    fun addBottomSide(): RawContent {
+        return RawContent().apply {
+            add(cursorNav.moveTo(Offset(height, 1)))
+            add(charBottomLeft)
+            add(cursorNav.moveTo(Offset(height, width)))
+            add(charBottomRight)
         }
     }
 }

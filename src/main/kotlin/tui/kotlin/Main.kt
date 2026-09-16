@@ -1,6 +1,7 @@
 import tui.kotlin.Offset
 import tui.kotlin.layout.Column
 import tui.kotlin.TuiManager
+import tui.kotlin.Arrangement
 import java.awt.Color
 
 fun main() {
@@ -17,10 +18,11 @@ fun main() {
         border(
             charHorizontal = '▞',
             charVertical = '▞',
-            charTopLeft = 'L',
-            charTopRight = 'R',
-            charBottomLeft = 'L',
-            charBottomRight = 'R'
+            charTopLeft = '1',
+            charTopRight = '2',
+            charBottomLeft = '3',
+            charBottomRight = '4',
+            arrangement = Arrangement.RIGHT
         )
 
         text(

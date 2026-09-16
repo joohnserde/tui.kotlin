@@ -19,4 +19,7 @@ class RawContent(private val _content: StringBuilder) {
         _content.append(string)
     }
 
+    fun add(char: Char) {
+        _content.append(char)
+    }
 }
