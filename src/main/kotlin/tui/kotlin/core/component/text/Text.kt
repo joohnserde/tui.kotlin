@@ -26,12 +26,11 @@ internal class Text(
     val strikeThrough: Boolean
 ) {
 
+    private val cursorNav = Cursor()
+
+    private val charStyle = CharStyle()
+
     fun buildText(): RawContent {
-
-        val cursorNav = Cursor()
-
-        val charStyle = CharStyle()
-
         return RawContent().apply {
             add(cursorNav.moveTo(offset))
             charStyle.apply {

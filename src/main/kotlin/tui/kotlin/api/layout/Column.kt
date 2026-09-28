@@ -10,6 +10,7 @@ import tui.kotlin.navigation.Cursor
 import tui.kotlin.layout.Layout
 import java.awt.Color
 import tui.kotlin.Offset
+import tui.kotlin.core.component.AsciiArt
 import tui.kotlin.exception.BorderException
 
 class Column(
@@ -99,6 +100,21 @@ class Column(
             strikeThrough = strikeThrough
         ).buildText()
         layer.stringLayer.append(text.content)
+    }
+
+    fun asciiArt(
+        textString: String,
+        offset: Offset,
+        fgColor: Color = Color.WHITE,
+        bgColor: Color = Color(0,0,0,0)
+    ) {
+        val asciiArt = AsciiArt(
+            textString = textString,
+            offset = offset,
+            fgColor = fgColor,
+            bgColor = bgColor
+        ).buildAsciiArt()
+        layer.stringLayer.append(asciiArt.content)
     }
 
 }

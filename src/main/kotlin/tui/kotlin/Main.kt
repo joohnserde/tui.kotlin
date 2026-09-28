@@ -16,16 +16,32 @@ fun main() {
         )
 
         border(
-            charHorizontal = '▞',
-            charVertical = '▞',
+            charHorizontal = '%',
+            charVertical = '%',
             charTopLeft = '1',
             charTopRight = '2',
             charBottomLeft = '3',
             charBottomRight = '4',
-            arrangement = Arrangement.RIGHT
+            arrangement = Arrangement.FULL,
+            fgColor = Color.ORANGE 
         )
 
-        text(
+        asciiArt(
+            textString = """
+    _______  ________  ________  ________
+  //      / /    /   \/        \/       /
+ //       \/         /         /        \
+/         /         /         /         /
+\________/\___/____/\___/____/\________/ 
+            """,
+            offset = Offset(3, 5),
+            fgColor = Color.GREEN,
+            bgColor = Color.BLUE
+
+        )
+
+
+        /*text(
             textString = " test 121e31r3fqc ",
             offset = Offset(1,4),
             fgColor = Color(255,255,255),
@@ -36,7 +52,7 @@ fun main() {
             textString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque nunc. Duis sed turpis nec tellus pellentesque cursus.",
             offset = Offset(8, 4),
             bgColor = Color.BLUE
-        )
+        )*/
     }
     TuiManager().write(homeScreen)
 }
