@@ -11,8 +11,6 @@ class AsciiArt(
 
     val textString: String,
 
-    val offset: Offset,
-
     val fgColor: Color,
 
     val bgColor: Color
@@ -23,8 +21,22 @@ class AsciiArt(
 
     private val charStyle = CharStyle()
 
-    fun buildAsciiArt(): RawContent {
-        val stringArray = textString.trimIndent().split(Regex("\n"))
+    private val stringArray = textString.split(Regex("\n"))
+
+    fun buildAsciiArt(
+        superimpose: Boolean,
+        offset: Offset
+    ): RawContent {
+        return RawContent().apply {
+            if (superimpose) add(superImposeAsciiArt(offset))
+        }
+    }
+
+    fun insertAsciiArt() {
+
+    }
+
+    fun superImposeAsciiArt(offset: Offset): RawContent {
         return RawContent().apply {
             charStyle.apply {
                 add(fgColor(fgColor))

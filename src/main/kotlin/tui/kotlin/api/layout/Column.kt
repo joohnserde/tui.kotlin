@@ -105,15 +105,15 @@ class Column(
     fun asciiArt(
         textString: String,
         offset: Offset,
+        superimpose: Boolean = true,
         fgColor: Color = Color.WHITE,
         bgColor: Color = Color(0,0,0,0)
     ) {
         val asciiArt = AsciiArt(
             textString = textString,
-            offset = offset,
             fgColor = fgColor,
             bgColor = bgColor
-        ).buildAsciiArt()
+        ).buildAsciiArt(superimpose, offset)
         layer.stringLayer.append(asciiArt.content)
     }
 

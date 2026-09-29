@@ -23,7 +23,7 @@ fun main() {
             charBottomLeft = '3',
             charBottomRight = '4',
             arrangement = Arrangement.FULL,
-            fgColor = Color.ORANGE 
+            fgColor = Color.ORANGE
         )
 
         asciiArt(
@@ -33,22 +33,23 @@ fun main() {
  //       \/         /         /        \
 /         /         /         /         /
 \________/\___/____/\___/____/\________/ 
-            """,
+""",
+            superimpose = true,
             offset = Offset(3, 5),
             fgColor = Color.GREEN,
-            bgColor = Color.BLUE
+            bgColor = Color.BLACK
 
         )
 
 
-        /*text(
+        text(
             textString = " test 121e31r3fqc ",
             offset = Offset(1,4),
             fgColor = Color(255,255,255),
             bgColor = Color(255, 0, 179)
         )
 
-        text(
+        /*text(
             textString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque nunc. Duis sed turpis nec tellus pellentesque cursus.",
             offset = Offset(8, 4),
             bgColor = Color.BLUE
