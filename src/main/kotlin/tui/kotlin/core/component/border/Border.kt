@@ -25,6 +25,10 @@ internal class Border(
 
     val charBottomRight: Char,
 
+    val fgColor: Color,
+
+    val bgColor: Color,
+
     val height: Int,
 
     val width: Int,
@@ -33,11 +37,7 @@ internal class Border(
 
     private val cursorNav = Cursor()
 
-    fun buildBorder(
-        arrangement: Arrangement,
-        fgColor: Color,
-        bgColor: Color
-    ): RawContent {
+    fun buildBorder(arrangement: Arrangement): RawContent {
 
         val charStyle = CharStyle()
 

@@ -30,7 +30,15 @@ internal class Text(
 
     private val charStyle = CharStyle()
 
-    fun buildText(): RawContent {
+
+    fun buildText(singleLine: Boolean): RawContent {
+        return RawContent().apply { 
+            if (singleLine) add(buildSingleline())
+            else add(buildMultiline())
+        }
+    }
+
+    fun buildSingleline(): RawContent {
         return RawContent().apply {
             add(cursorNav.moveTo(offset))
             charStyle.apply {
@@ -45,4 +53,10 @@ internal class Text(
             add(charStyle.resetStyle())
         }
     }
+
+    fun buildMultiline(): RawContent {
+        return RawContent() 
+    }
+
+
 }
