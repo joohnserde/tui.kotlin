@@ -4,7 +4,6 @@ import tui.kotlin.navigation.Cursor
 import tui.kotlin.style.CharStyle
 import java.awt.Color
 import tui.kotlin.Offset
-import tui.kotlin.TermManager
 import tui.kotlin.RawContent
 
 internal class Text(

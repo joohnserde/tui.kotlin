@@ -1,4 +1,4 @@
-package tui.kotlin.layout
+package tui.kotlin.core.component
 
 import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
@@ -6,12 +6,10 @@ import tui.kotlin.Layer
 import tui.kotlin.core.component.Text
 import tui.kotlin.core.component.Canvas
 import tui.kotlin.core.component.Border
-import tui.kotlin.navigation.Cursor
-import tui.kotlin.layout.Layout
 import java.awt.Color
 import tui.kotlin.Offset
+import tui.kotlin.core.Layout
 import tui.kotlin.core.component.AsciiArt
-import tui.kotlin.exception.BorderException
 
 class Column(
 

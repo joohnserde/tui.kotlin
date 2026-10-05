@@ -1,8 +1,6 @@
-package tui.kotlin.layout
+package tui.kotlin.core
 
 import tui.kotlin.Layer
-import tui.kotlin.core.component.Canvas
-import java.awt.Color
 
 interface Layout {
 

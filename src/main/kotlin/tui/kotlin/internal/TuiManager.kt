@@ -1,7 +1,7 @@
 package tui.kotlin
 
 import tui.kotlin.TermManager
-import tui.kotlin.layout.Layout
+import tui.kotlin.core.Layout
 import tui.kotlin.navigation.Cursor
 import java.awt.Color
 

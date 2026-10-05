@@ -5,7 +5,6 @@ import tui.kotlin.RawContent
 import tui.kotlin.navigation.Cursor
 import tui.kotlin.style.CharStyle
 import java.awt.Color
-import java.time.format.TextStyle
 
 class AsciiArt(
 

@@ -1,9 +1,4 @@
-package tui.kotlin.layout
-
-import tui.kotlin.TermManager
-import tui.kotlin.Layer
-import tui.kotlin.core.component.Canvas
-import java.awt.Color
+package tui.kotlin.core.component
 
 /*
 class Row(

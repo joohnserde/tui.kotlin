@@ -1,7 +1,6 @@
 package tui.kotlin.core.component
 
 import tui.kotlin.Arrangement
-import tui.kotlin.TermManager
 import tui.kotlin.Offset
 import tui.kotlin.RawContent
 import tui.kotlin.exception.BorderException

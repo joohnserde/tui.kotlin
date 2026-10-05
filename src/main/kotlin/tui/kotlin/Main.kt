@@ -1,7 +1,7 @@
 import tui.kotlin.Offset
-import tui.kotlin.layout.Column
 import tui.kotlin.TuiManager
 import tui.kotlin.Arrangement
+import tui.kotlin.core.component.Column
 import java.awt.Color
 
 fun main() {
