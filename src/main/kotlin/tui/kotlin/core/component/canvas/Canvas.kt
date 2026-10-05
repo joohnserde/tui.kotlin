@@ -16,6 +16,8 @@ data class Canvas(
 
 ) {
 
+    private val charStyle = CharStyle()
+
     constructor(termSize: Pair<Int, Int>) : this(
         charCanvas = ' ',
         termSize = termSize,
@@ -38,7 +40,6 @@ data class Canvas(
     }
 
     fun buildCanvas(): RawContent {
-        val charStyle = CharStyle()
         return RawContent().apply {
             add(charStyle.fgColor(fgColor))
             add(charStyle.bgColor(bgColor))

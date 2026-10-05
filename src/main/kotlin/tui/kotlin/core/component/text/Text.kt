@@ -26,12 +26,19 @@ internal class Text(
     val strikeThrough: Boolean
 ) {
 
-    fun buildText(): RawContent {
+    private val cursorNav = Cursor()
 
-        val cursorNav = Cursor()
+    private val charStyle = CharStyle()
 
-        val charStyle = CharStyle()
 
+    fun buildText(singleLine: Boolean): RawContent {
+        return RawContent().apply { 
+            if (singleLine) add(buildSingleline())
+            else add(buildMultiline())
+        }
+    }
+
+    fun buildSingleline(): RawContent {
         return RawContent().apply {
             add(cursorNav.moveTo(offset))
             charStyle.apply {
@@ -46,4 +53,10 @@ internal class Text(
             add(charStyle.resetStyle())
         }
     }
+
+    fun buildMultiline(): RawContent {
+        return RawContent() 
+    }
+
+
 }

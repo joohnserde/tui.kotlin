@@ -21,9 +21,9 @@ class TermManager() {
          * The returned input stream to be buffered and read it as String
          * */
         val output = process.inputStream.bufferedReader().readText().trim()
-        
+
         val dimensions = output.split(" ")
-        
+
         try {
 
             if (output.isBlank()) {

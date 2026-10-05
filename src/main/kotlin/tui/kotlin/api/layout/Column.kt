@@ -10,6 +10,7 @@ import tui.kotlin.navigation.Cursor
 import tui.kotlin.layout.Layout
 import java.awt.Color
 import tui.kotlin.Offset
+import tui.kotlin.core.component.AsciiArt
 import tui.kotlin.exception.BorderException
 
 class Column(
@@ -66,13 +67,11 @@ class Column(
             charTopRight = charTopRight,
             charBottomLeft = charBottomLeft,
             charBottomRight = charBottomRight,
+            fgColor = fgColor,
+            bgColor = bgColor,
             height = dimension.first,
             width = dimension.second
-        ).buildBorder(
-            arrangement = arrangement,
-            fgColor = fgColor,
-            bgColor = bgColor
-        )
+        ).buildBorder(arrangement = arrangement)
         layer.stringLayer.append(border.content)
     }
 
@@ -84,6 +83,7 @@ class Column(
         italic: Boolean = false,
         bold: Boolean = false,
         underLine: Boolean = false,
+        singleLine: Boolean = false,
         fgColor: Color = Color.WHITE,
         bgColor: Color = Color(0,0,0,0),
         strikeThrough: Boolean = false
@@ -97,8 +97,23 @@ class Column(
             fgColor = fgColor,
             bgColor = bgColor,
             strikeThrough = strikeThrough
-        ).buildText()
+        ).buildText(singleLine = singleLine)
         layer.stringLayer.append(text.content)
+    }
+
+    fun asciiArt(
+        textString: String,
+        offset: Offset,
+        superimpose: Boolean = true,
+        fgColor: Color = Color.WHITE,
+        bgColor: Color = Color(0,0,0,0)
+    ) {
+        val asciiArt = AsciiArt(
+            textString = textString,
+            fgColor = fgColor,
+            bgColor = bgColor
+        ).buildAsciiArt(superimpose, offset)
+        layer.stringLayer.append(asciiArt.content)
     }
 
 }
