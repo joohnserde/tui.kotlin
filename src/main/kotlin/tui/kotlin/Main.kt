@@ -16,11 +16,7 @@ fun main() {
         canvas(
             charCanvas = ' ',
             fgColor = Color(0, 0, 156),
-            bgColor = Color.BLUE
-        )
-
-        canvas(
-            charCanvas = ' ',
+            bgColor = Color.DARK_GRAY
         )
 
         border(
@@ -70,7 +66,6 @@ fun main() {
                     bgColor = Color.BLUE
                 )
                 border()
-
                 buildCanvas()
             }
         )
@@ -82,5 +77,5 @@ fun main() {
         )*/
     }
 
-    TuiManager().write(homeScreen)
+    TuiManager().write(layout = homeScreen)
 }

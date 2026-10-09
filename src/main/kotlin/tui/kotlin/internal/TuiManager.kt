@@ -14,10 +14,11 @@ class TuiManager(
     fun write(
         layout: Layout,
         clearScreen: Boolean = true,
+        buildCanvas: Boolean = true
     ) {
         writeMode(layout)
         if (clearScreen) TermManager().clearScreen()
-        layout.buildCanvas()
+        if (buildCanvas) layout.buildCanvas()
         normalMode(layout)
         println(layout.layer.stringLayer)
     }
