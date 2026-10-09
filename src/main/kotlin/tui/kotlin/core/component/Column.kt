@@ -1,5 +1,6 @@
 package tui.kotlin.core.component
 
+import com.sun.tools.javac.tree.TreeInfo
 import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
 import tui.kotlin.Layer
@@ -13,33 +14,45 @@ import tui.kotlin.core.component.AsciiArt
 
 class Column(
 
-    override val layer: Layer = Layer(),
+    // param
+    val dimension: Pair<Int, Int>,
 
+    // service
     private val termManager: TermManager = TermManager(),
 
 ) : Layout {
 
-    val dimension = termManager.getTerminalDimension()
+
+    // state
+    override val layer: Layer = Layer()
 
     private var canvas: Canvas = Canvas(dimension)
 
+
+    // canvas builder
     override fun buildCanvas() {
         val canvas = canvas.buildCanvas()
         layer.stringLayer.insert(0, canvas.content)
     }
 
-    // canvas
+    // canvas setup
     fun canvas(
-        buildCanvas: Boolean = true,
         charCanvas: Char = ' ',
         fgColor: Color = Color(0,0,0,0),
         bgColor: Color = Color(0,0,0,0)
     ) {
         canvas = canvas.updateCanvas(
             charCanvas = charCanvas,
-            termSize = dimension,
+            dimension = dimension,
             fgColor = fgColor,
             bgColor = bgColor
+        )
+    }
+
+
+    fun column(layout: Column) {
+        layer.stringLayer.append(
+            layout.layer.stringLayer
         )
     }
 
@@ -67,8 +80,7 @@ class Column(
             charBottomRight = charBottomRight,
             fgColor = fgColor,
             bgColor = bgColor,
-            height = dimension.first,
-            width = dimension.second
+            dimension = dimension
         ).buildBorder(arrangement = arrangement)
         layer.stringLayer.append(border.content)
     }
@@ -99,6 +111,8 @@ class Column(
         layer.stringLayer.append(text.content)
     }
 
+
+    // ascii art
     fun asciiArt(
         textString: String,
         offset: Offset,

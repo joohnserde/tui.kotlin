@@ -8,7 +8,7 @@ data class Canvas(
 
     val charCanvas: Char,
 
-    val termSize: Pair<Int, Int>,
+    val dimension: Pair<Int, Int>,
 
     val fgColor: Color,
 
@@ -18,22 +18,22 @@ data class Canvas(
 
     private val charStyle = CharStyle()
 
-    constructor(termSize: Pair<Int, Int>) : this(
+    constructor(dimension: Pair<Int, Int>) : this(
         charCanvas = ' ',
-        termSize = termSize,
+        dimension = dimension,
         fgColor = Color(0,0,0,0),
         bgColor = Color(0,0,0,0)
     )
 
     fun updateCanvas(
         charCanvas: Char,
-        termSize: Pair<Int, Int>,
+        dimension: Pair<Int, Int>,
         fgColor: Color,
         bgColor: Color,
     ): Canvas {
         return this.copy(
             charCanvas = charCanvas,
-            termSize = termSize,
+            dimension = dimension,
             fgColor = fgColor,
             bgColor = bgColor
         )
@@ -44,7 +44,7 @@ data class Canvas(
             add(charStyle.fgColor(fgColor))
             add(charStyle.bgColor(bgColor))
             add(charCanvas.toString().repeat(
-                termSize.first * termSize.second
+                dimension.first * dimension.second
             ))
             add(charStyle.resetStyle())
         }

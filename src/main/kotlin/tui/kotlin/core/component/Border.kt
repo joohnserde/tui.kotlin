@@ -28,10 +28,7 @@ internal class Border(
 
     val bgColor: Color,
 
-    val height: Int,
-
-    val width: Int,
-
+    val dimension: Pair<Int, Int>
 ) {
 
     private val cursorNav = Cursor()
@@ -113,19 +110,19 @@ internal class Border(
 //
     fun buildHorizontalLine(): RawContent {
 
-        val horizontalLine = charHorizontal.toString().repeat(width)
+        val horizontalLine = charHorizontal.toString().repeat(dimension.second)
 
         return RawContent().apply {
             add(cursorNav.moveTo(Offset(1, 1)))
             add(horizontalLine)
-            add(cursorNav.moveTo(Offset(height, 1)))
+            add(cursorNav.moveTo(Offset(dimension.first, 1)))
             add(horizontalLine)
         }
     }
 
     fun buildTopLine(): RawContent {
 
-        val horizontalLine = charHorizontal.toString().repeat(width)
+        val horizontalLine = charHorizontal.toString().repeat(dimension.second)
 
         return RawContent().apply {
             add(cursorNav.moveTo(Offset(1, 1)))
@@ -135,10 +132,10 @@ internal class Border(
 
     fun buildBottomLine(): RawContent {
 
-        val horizontalLine = charHorizontal.toString().repeat(width)
+        val horizontalLine = charHorizontal.toString().repeat(dimension.second)
 
         return RawContent().apply {
-            add(cursorNav.moveTo(Offset(height, 1)))
+            add(cursorNav.moveTo(Offset(dimension.first, 1)))
             add(horizontalLine)
         }
     }
@@ -152,12 +149,12 @@ internal class Border(
         val rawContent = RawContent()
 
         return try {
-            var tmpRowsLoc = height
+            var tmpRowsLoc = dimension.first
             do {
                 rawContent.apply {
                     cursorNav.apply {
                         add(moveTo(Offset(tmpRowsLoc, 1)).plus(charVertical))
-                        add(moveTo(Offset(tmpRowsLoc, width)).plus(charVertical))
+                        add(moveTo(Offset(tmpRowsLoc, dimension.second)).plus(charVertical))
                     }
                 }
                 tmpRowsLoc--
@@ -174,7 +171,7 @@ internal class Border(
         val rawContent = RawContent()
 
         return try {
-            var tmpRowsLoc = height
+            var tmpRowsLoc = dimension.first
             do {
                 rawContent.add(
                     cursorNav.moveTo(Offset(tmpRowsLoc, 1)).plus(charVertical)
@@ -193,10 +190,10 @@ internal class Border(
         val rawContent = RawContent()
 
         return try {
-            var tmpRowsLoc = height
+            var tmpRowsLoc = dimension.first
             do {
                 rawContent.add(
-                    cursorNav.moveTo(Offset(tmpRowsLoc, width)).plus(charVertical)
+                    cursorNav.moveTo(Offset(tmpRowsLoc, dimension.second)).plus(charVertical)
                 )
                 tmpRowsLoc--
             } while (!tmpRowsLoc.equals(0))
@@ -219,7 +216,7 @@ internal class Border(
         return RawContent().apply {
             add(cursorNav.moveTo(Offset(1, 1)))
             add(charTopLeft)
-            add(cursorNav.moveTo(Offset(height, 1)))
+            add(cursorNav.moveTo(Offset(dimension.first, 1)))
             add(charBottomLeft)
         }
     }
@@ -230,9 +227,9 @@ internal class Border(
 //
     fun addRightSide(): RawContent {
         return RawContent().apply {
-            add(cursorNav.moveTo(Offset(1, width)))
+            add(cursorNav.moveTo(Offset(1, dimension.second)))
             add(charTopRight)
-            add(cursorNav.moveTo(Offset(height, width)))
+            add(cursorNav.moveTo(Offset(dimension.first, dimension.second)))
             add(charBottomRight)
         }
     }
@@ -245,7 +242,7 @@ internal class Border(
         return RawContent().apply {
             add(cursorNav.moveTo(Offset(1, 1)))
             add(charTopLeft)
-            add(cursorNav.moveTo(Offset(1, width)))
+            add(cursorNav.moveTo(Offset(1, dimension.second)))
             add(charTopRight)
         }
     }
@@ -256,9 +253,9 @@ internal class Border(
 //
     fun addBottomSide(): RawContent {
         return RawContent().apply {
-            add(cursorNav.moveTo(Offset(height, 1)))
+            add(cursorNav.moveTo(Offset(dimension.first, 1)))
             add(charBottomLeft)
-            add(cursorNav.moveTo(Offset(height, width)))
+            add(cursorNav.moveTo(Offset(dimension.first, dimension.second)))
             add(charBottomRight)
         }
     }

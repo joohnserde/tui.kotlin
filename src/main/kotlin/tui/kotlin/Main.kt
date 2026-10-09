@@ -1,12 +1,16 @@
 import tui.kotlin.Offset
 import tui.kotlin.TuiManager
 import tui.kotlin.Arrangement
+import tui.kotlin.TermManager
 import tui.kotlin.core.component.Column
 import java.awt.Color
 
 fun main() {
 
-    val homeScreen = Column()
+
+    TuiBuilder()
+
+    val homeScreen = Column(TermManager().getTerminalDimension())
     homeScreen.apply {
 
         canvas(
@@ -60,11 +64,23 @@ fun main() {
             bgColor = Color(255, 0, 179)
         )
 
+        column(
+            Column(dimension = Pair(10,15)).apply {
+                canvas(
+                    bgColor = Color.BLUE
+                )
+                border()
+
+                buildCanvas()
+            }
+        )
+
         /*text(
             textString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque nunc. Duis sed turpis nec tellus pellentesque cursus.",
             offset = Offset(8, 4),
             bgColor = Color.BLUE
         )*/
     }
+
     TuiManager().write(homeScreen)
 }
