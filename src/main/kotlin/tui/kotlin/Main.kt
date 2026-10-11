@@ -16,7 +16,7 @@ fun main() {
         canvas(
             charCanvas = ' ',
             fgColor = Color(0, 0, 156),
-            bgColor = Color.DARK_GRAY
+            //bgColor = Color.DARK_GRAY
         )
 
         border(
@@ -66,6 +66,13 @@ fun main() {
                     bgColor = Color.BLUE
                 )
                 border()
+
+                text(
+                    textString = "lorem ipsum",
+                    offset = Offset(5,7),
+                    singleLine = true
+                )
+
                 buildCanvas()
             }
         )

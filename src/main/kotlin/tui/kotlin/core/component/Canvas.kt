@@ -51,11 +51,11 @@ data class Canvas(
                 dimension.first * dimension.second
             ))*/
 
-            var height = dimension.first
-            while (height != 0) {
-                add(cursorNav.moveTo(Offset(height, 0)))
+            var tempHeight = 0
+            while (tempHeight <= dimension.first) {
+                add(cursorNav.moveTo(Offset(tempHeight, 0)))
                 add(StringBuilder().append(charCanvas).repeat(dimension.second))
-                height--
+                tempHeight++
             }
             add(charStyle.resetStyle())
         }
