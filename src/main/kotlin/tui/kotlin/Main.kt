@@ -7,16 +7,13 @@ import java.awt.Color
 
 fun main() {
 
-
-    TuiBuilder()
-
     val homeScreen = Column(TermManager().getTerminalDimension())
     homeScreen.apply {
 
         canvas(
             charCanvas = ' ',
             fgColor = Color(0, 0, 156),
-            //bgColor = Color.DARK_GRAY
+            bgColor = Color.DARK_GRAY
         )
 
         border(
@@ -82,6 +79,8 @@ fun main() {
             offset = Offset(8, 4),
             bgColor = Color.BLUE
         )*/
+
+        appendWidgets()
     }
 
     TuiManager().write(layout = homeScreen)

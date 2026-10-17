@@ -1,5 +1,6 @@
 package tui.kotlin.core.component
 
+import WidgetBuilder
 import com.sun.tools.javac.tree.TreeInfo
 import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
@@ -14,20 +15,19 @@ import tui.kotlin.core.component.AsciiArt
 
 class Column(
 
-    // param
-    val dimension: Pair<Int, Int>,
+    val dimension: Pair<Int, Int>
 
-    // service
-    private val termManager: TermManager = TermManager(),
-
-) : Layout {
-
+) : WidgetBuilder(), Layout {
 
     // state
     override val layer: Layer = Layer()
 
     private var canvas: Canvas = Canvas(dimension)
 
+
+    fun appendWidgets() {
+        layer.stringLayer.append(getWidgets)
+    }
 
     // canvas builder
     override fun buildCanvas() {
@@ -49,14 +49,6 @@ class Column(
         )
     }
 
-    // column layout
-    fun column(layout: Column) {
-        layer.stringLayer.append(
-            layout.layer.stringLayer
-        )
-    }
-
-
     // border
     fun border(
         charBorder: Char = '#',
@@ -68,7 +60,7 @@ class Column(
         charBottomRight: Char = '#',
         arrangement: Arrangement = Arrangement.FULL,
         fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0)
+        bgColor: Color = Color(0,0,0,0),
     ) {
         val border = Border(
             charBorder = charBorder,
@@ -84,48 +76,4 @@ class Column(
         ).buildBorder(arrangement = arrangement)
         layer.stringLayer.append(border.content)
     }
-
-
-    // text
-    fun text(
-        textString: String,
-        offset: Offset,
-        italic: Boolean = false,
-        bold: Boolean = false,
-        underLine: Boolean = false,
-        singleLine: Boolean = false,
-        fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0),
-        strikeThrough: Boolean = false
-    ) {
-        val text = Text(
-            textString = textString,
-            offset = offset,
-            italic = italic,
-            bold = bold,
-            underLine = underLine,
-            fgColor = fgColor,
-            bgColor = bgColor,
-            strikeThrough = strikeThrough
-        ).buildText(singleLine = singleLine)
-        layer.stringLayer.append(text.content)
-    }
-
-
-    // ascii art
-    fun asciiArt(
-        textString: String,
-        offset: Offset,
-        superimpose: Boolean = true,
-        fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0)
-    ) {
-        val asciiArt = AsciiArt(
-            textString = textString,
-            fgColor = fgColor,
-            bgColor = bgColor
-        ).buildAsciiArt(superimpose, offset)
-        layer.stringLayer.append(asciiArt.content)
-    }
-
 }
