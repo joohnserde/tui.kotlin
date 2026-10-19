@@ -58,7 +58,7 @@ fun main() {
         )
 
         column(
-            Column(dimension = Pair(10,15)).apply {
+            Column(dimension = Pair(10,45)).apply {
                 canvas(
                     bgColor = Color.BLUE
                 )
@@ -71,6 +71,7 @@ fun main() {
                 )
 
                 buildCanvas()
+                appendWidgets()
             }
         )
 
@@ -80,6 +81,7 @@ fun main() {
             bgColor = Color.BLUE
         )*/
 
+        buildCanvas()
         appendWidgets()
     }
 

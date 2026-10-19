@@ -17,63 +17,12 @@ class Column(
 
     val dimension: Pair<Int, Int>
 
-) : WidgetBuilder(), Layout {
+) : WidgetBuilder(dimension), Layout {
 
     // state
     override val layer: Layer = Layer()
 
-    private var canvas: Canvas = Canvas(dimension)
-
-
     fun appendWidgets() {
-        layer.stringLayer.append(getWidgets)
-    }
-
-    // canvas builder
-    override fun buildCanvas() {
-        val canvas = canvas.buildCanvas()
-        layer.stringLayer.insert(0, canvas.content)
-    }
-
-    // canvas setup
-    fun canvas(
-        charCanvas: Char = ' ',
-        fgColor: Color = Color(0,0,0,0),
-        bgColor: Color = Color(0,0,0,0)
-    ) {
-        canvas = canvas.updateCanvas(
-            charCanvas = charCanvas,
-            dimension = dimension,
-            fgColor = fgColor,
-            bgColor = bgColor
-        )
-    }
-
-    // border
-    fun border(
-        charBorder: Char = '#',
-        charHorizontal: Char = '#',
-        charVertical: Char = '#',
-        charTopLeft: Char = '#',
-        charTopRight: Char = '#',
-        charBottomLeft: Char = '#',
-        charBottomRight: Char = '#',
-        arrangement: Arrangement = Arrangement.FULL,
-        fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0),
-    ) {
-        val border = Border(
-            charBorder = charBorder,
-            charHorizontal = charHorizontal,
-            charVertical = charVertical,
-            charTopLeft = charTopLeft,
-            charTopRight = charTopRight,
-            charBottomLeft = charBottomLeft,
-            charBottomRight = charBottomRight,
-            fgColor = fgColor,
-            bgColor = bgColor,
-            dimension = dimension
-        ).buildBorder(arrangement = arrangement)
-        layer.stringLayer.append(border.content)
+        layer.stringLayer.append(super.getWidgets)
     }
 }

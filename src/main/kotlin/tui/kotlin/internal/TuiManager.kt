@@ -16,9 +16,8 @@ class TuiManager(
         clearScreen: Boolean = true,
         buildCanvas: Boolean = true
     ) {
-        writeMode(layout)
         if (clearScreen) TermManager().clearScreen()
-        if (buildCanvas) layout.buildCanvas()
+        writeMode(layout)
         normalMode(layout)
         println(layout.layer.stringLayer)
     }
