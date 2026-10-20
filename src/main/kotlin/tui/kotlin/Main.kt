@@ -69,9 +69,6 @@ fun main() {
                     offset = Offset(5,7),
                     singleLine = true
                 )
-
-                buildCanvas()
-                appendWidgets()
             }
         )
 
@@ -81,8 +78,6 @@ fun main() {
             bgColor = Color.BLUE
         )*/
 
-        buildCanvas()
-        appendWidgets()
     }
 
     TuiManager().write(layout = homeScreen)

@@ -76,6 +76,8 @@ open class WidgetBuilder(
 
     // column layout
     fun column(layout: Column) {
+        layout.buildCanvas()
+        layout.appendWidgets()
         widgetCollection.append(
             layout.layer.stringLayer
         )
