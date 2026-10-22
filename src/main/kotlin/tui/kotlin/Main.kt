@@ -2,12 +2,13 @@ import tui.kotlin.Offset
 import tui.kotlin.TuiManager
 import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
+import tui.kotlin.core.component.Box
 import tui.kotlin.core.component.Column
 import java.awt.Color
 
 fun main() {
 
-    val homeScreen = Column(TermManager().getTerminalDimension())
+    val homeScreen = Box(TermManager().getTerminalDimension())
     homeScreen.apply {
 
         canvas(

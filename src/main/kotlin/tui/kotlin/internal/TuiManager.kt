@@ -2,6 +2,7 @@ package tui.kotlin
 
 import tui.kotlin.TermManager
 import tui.kotlin.core.Layout
+import tui.kotlin.core.component.Box
 import tui.kotlin.core.component.Column
 import tui.kotlin.navigation.Cursor
 import java.awt.Color
@@ -19,9 +20,9 @@ class TuiManager(
     ) {
         if (clearScreen) TermManager().clearScreen()
         writeMode(layout)
-        if (layout is Column) {
+        if (layout is Box) {
             layout.buildCanvas()
-            layout.appendWidgets()
+            layout.appendTui()
         }
         normalMode(layout)
         println(layout.layer.stringLayer)

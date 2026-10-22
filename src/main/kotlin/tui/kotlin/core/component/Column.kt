@@ -1,6 +1,6 @@
 package tui.kotlin.core.component
 
-import WidgetBuilder
+import TuiBuilder
 import com.sun.tools.javac.tree.TreeInfo
 import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
@@ -17,12 +17,12 @@ class Column(
 
     val dimension: Pair<Int, Int>
 
-) : WidgetBuilder(dimension), Layout {
+) : TuiBuilder(dimension), Layout {
 
     // state
     override val layer: Layer = Layer()
 
-    fun appendWidgets() {
+    fun appendTui() {
         layer.stringLayer.append(super.getWidgets)
     }
 }

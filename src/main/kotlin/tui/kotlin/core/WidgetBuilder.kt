@@ -12,24 +12,24 @@ import tui.kotlin.core.component.Column
 import tui.kotlin.core.component.AsciiArt
 
 
-open class WidgetBuilder(
+open class TuiBuilder(
 
     val size: Pair<Int, Int>
 
 ) {
 
     // state
-    private val widgetCollection = StringBuilder()
+    private val tuiCollection = StringBuilder()
 
     val getWidgets
-        get() = widgetCollection
+        get() = tuiCollection
 
     private var canvas: Canvas = Canvas(size)
 
     // canvas builder
     fun buildCanvas() {
         val canvas = canvas.buildCanvas()
-        widgetCollection.insert(0, canvas.content)
+        tuiCollection.insert(0, canvas.content)
     }
 
     // canvas setup
@@ -71,14 +71,14 @@ open class WidgetBuilder(
             bgColor = bgColor,
             dimension = size
         ).buildBorder(arrangement = arrangement)
-        widgetCollection.append(border.content)
+        tuiCollection.append(border.content)
     }
 
     // column layout
     fun column(layout: Column) {
         layout.buildCanvas()
-        layout.appendWidgets()
-        widgetCollection.append(
+        layout.appendTui()
+        tuiCollection.append(
             layout.layer.stringLayer
         )
     }
@@ -105,7 +105,7 @@ open class WidgetBuilder(
             bgColor = bgColor,
             strikeThrough = strikeThrough
         ).buildText(singleLine = singleLine)
-        widgetCollection.append(text.content)
+        tuiCollection.append(text.content)
     }
 
     // ascii art
@@ -121,6 +121,6 @@ open class WidgetBuilder(
             fgColor = fgColor,
             bgColor = bgColor
         ).buildAsciiArt(superimpose, offset)
-        widgetCollection.append(asciiArt.content)
+        tuiCollection.append(asciiArt.content)
     }
 }
