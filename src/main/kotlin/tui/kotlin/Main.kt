@@ -81,5 +81,7 @@ fun main() {
 
     }
 
-    TuiManager().write(layout = homeScreen)
+    TuiManager()
+        .write(layout = homeScreen)
+    TuiManager().write2File(homeScreen.getWidgets)
 }
