@@ -1,14 +1,33 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>Page Title</title>
+  <meta charset="utf-8">
+  <title>tui.kotlin</title>
+  <meta name="description" content="A Kotlin library for building text-based UIs">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css">
+
+  <style>
+    :root { --theme-color: #5b21b6; }
+    @media (prefers-color-scheme: dark) {
+      :root { --theme-color: #a78bfa; }
+    }
+  </style>
 </head>
 <body>
-
-<h1>HELLO WORLD</h1>
-
+  <div id="app">Loading...</div>
+  <script>
+    window.$docsify = {
+      name: 'tui.kotlin',
+      repo: 'https://github.com/joohnserde/tui.kotlin',
+      loadSidebar: true,   // membaca _sidebar.md
+      subMaxLevel: 2,      // heading h2 tiap halaman tampil di bawah item sidebar
+      auto2top: true,
+      search: 'auto'
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/plugins/search.min.js"></script>
 </body>
 </html>
-
-

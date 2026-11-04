@@ -1,0 +1,5 @@
+- Getting started
+  - [Quick start](quick-start.md)
+  - [Adding pages](adding-pages.md)
+  - [Cover page](cover-page.md)
+  - [Custom navbar](custom-navbar.md)
