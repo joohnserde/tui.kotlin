@@ -5,7 +5,7 @@ import tui.kotlin.core.Layout
 import tui.kotlin.core.component.Box
 import tui.kotlin.core.component.Column
 import tui.kotlin.navigation.Cursor
-import java.awt.Color
+import tui.kotlin.Color
 import java.io.FileWriter
 import java.io.IOException
 

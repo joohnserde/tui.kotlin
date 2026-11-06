@@ -2,7 +2,7 @@ package tui.kotlin.core.component
 
 import tui.kotlin.navigation.Cursor
 import tui.kotlin.style.CharStyle
-import java.awt.Color
+import tui.kotlin.Color
 import tui.kotlin.Offset
 import tui.kotlin.RawContent
 

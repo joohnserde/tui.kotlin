@@ -4,7 +4,7 @@ import tui.kotlin.Offset
 import tui.kotlin.RawContent
 import tui.kotlin.navigation.Cursor
 import tui.kotlin.style.CharStyle
-import java.awt.Color
+import tui.kotlin.Color
 
 class AsciiArt(
 

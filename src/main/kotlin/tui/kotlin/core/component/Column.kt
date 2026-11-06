@@ -8,7 +8,7 @@ import tui.kotlin.Layer
 import tui.kotlin.core.component.Text
 import tui.kotlin.core.component.Canvas
 import tui.kotlin.core.component.Border
-import java.awt.Color
+import tui.kotlin.Color
 import tui.kotlin.Offset
 import tui.kotlin.core.Layout
 import tui.kotlin.core.component.AsciiArt

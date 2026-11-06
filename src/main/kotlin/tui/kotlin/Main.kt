@@ -4,7 +4,7 @@ import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
 import tui.kotlin.core.component.Box
 import tui.kotlin.core.component.Column
-import java.awt.Color
+import tui.kotlin.Color
 
 fun main() {
 
@@ -14,7 +14,7 @@ fun main() {
         canvas(
             charCanvas = ' ',
             fgColor = Color(0, 0, 156),
-            bgColor = Color.DARK_GRAY
+            bgColor = Color(41, 41, 41)
         )
 
         border(
@@ -25,7 +25,7 @@ fun main() {
             charBottomLeft = '3',
             charBottomRight = '4',
             arrangement = Arrangement.FULL,
-            fgColor = Color.ORANGE
+            fgColor = Color(0, 34, 255)
         )
 
         text(
@@ -45,7 +45,7 @@ fun main() {
 \________/\___/____/\___/____/\________/ """.trimIndent(),
             superimpose = true,
             offset = Offset(5, 5),
-            fgColor = Color.GREEN,
+            fgColor = Color(21, 255, 0),
             bgColor = Color.BLACK
 
         )
@@ -61,7 +61,7 @@ fun main() {
         column(
             Column(dimension = Pair(10,45)).apply {
                 canvas(
-                    bgColor = Color.BLUE
+                    bgColor = Color(0, 34, 255)
                 )
                 border()
 

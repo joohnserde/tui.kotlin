@@ -6,7 +6,7 @@ import tui.kotlin.RawContent
 import tui.kotlin.exception.BorderException
 import tui.kotlin.navigation.Cursor
 import tui.kotlin.style.CharStyle
-import java.awt.Color
+import tui.kotlin.Color
 
 internal class Border(
 

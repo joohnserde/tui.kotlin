@@ -5,7 +5,7 @@ import tui.kotlin.Layer
 import tui.kotlin.core.component.Text
 import tui.kotlin.core.component.Canvas
 import tui.kotlin.core.component.Border
-import java.awt.Color
+import tui.kotlin.Color
 import tui.kotlin.Offset
 import tui.kotlin.core.Layout
 import tui.kotlin.core.component.Column
@@ -35,8 +35,8 @@ open class TuiBuilder(
     // canvas setup
     fun canvas(
         charCanvas: Char = ' ',
-        fgColor: Color = Color(0,0,0,0),
-        bgColor: Color = Color(0,0,0,0)
+        fgColor: Color = Color(0,0,0),
+        bgColor: Color = Color(0,0,0)
     ) {
         canvas = canvas.updateCanvas(
             charCanvas = charCanvas,
@@ -57,7 +57,7 @@ open class TuiBuilder(
         charBottomRight: Char = '#',
         arrangement: Arrangement = Arrangement.FULL,
         fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0),
+        bgColor: Color = Color(0,0,0),
     ) {
         val border = Border(
             charBorder = charBorder,
@@ -92,7 +92,7 @@ open class TuiBuilder(
         underLine: Boolean = false,
         singleLine: Boolean = false,
         fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0),
+        bgColor: Color = Color(0,0,0),
         strikeThrough: Boolean = false
     ) {
         val text = Text(
@@ -114,7 +114,7 @@ open class TuiBuilder(
         offset: Offset,
         superimpose: Boolean = true,
         fgColor: Color = Color.WHITE,
-        bgColor: Color = Color(0,0,0,0)
+        bgColor: Color = Color(0,0,0)
     ) {
         val asciiArt = AsciiArt(
             textString = textString,

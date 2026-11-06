@@ -1,6 +1,6 @@
 package tui.kotlin.style
 
-import java.awt.Color
+import tui.kotlin.Color
 import tui.kotlin.AnsiEscape
 
 class CharStyle {
