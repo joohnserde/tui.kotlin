@@ -17,12 +17,6 @@ class Box(
 
     val dimension: Pair<Int, Int>
 
-) : TuiBuilder(dimension), Layout {
+) : Layout(dimension) {
 
-    // state
-    override val layer: Layer = Layer()
-
-    fun appendTui() {
-        layer.stringLayer.append(super.getWidgets)
-    }
 }

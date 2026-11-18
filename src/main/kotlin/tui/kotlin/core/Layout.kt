@@ -1,8 +1,14 @@
 package tui.kotlin.core
 
+import TuiBuilder
 import tui.kotlin.Layer
 
-interface Layout {
+open class Layout(size: Pair<Int, Int>) : TuiBuilder(size) {
 
-    val layer: Layer
+    internal val ansiCollection = StringBuilder()
+
+    fun appendTui() {
+        ansiCollection.append(getWidgets)
+    }
+
 }

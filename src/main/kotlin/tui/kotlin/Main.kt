@@ -5,11 +5,17 @@ import tui.kotlin.TermManager
 import tui.kotlin.core.component.Box
 import tui.kotlin.core.component.Column
 import tui.kotlin.Color
+import tui.kotlin.core.Layout
 
 fun main() {
 
-    val homeScreen = Box(TermManager().getTerminalDimension())
-    homeScreen.apply {
+    TuiManager()
+        .write(layout = homeScreen())
+}
+
+fun homeScreen(): Layout = Box(
+    TermManager().getTerminalDimension()
+).apply {
 
         canvas(
             charCanvas = ' ',
@@ -78,10 +84,4 @@ fun main() {
             offset = Offset(8, 4),
             bgColor = Color.BLUE
         )*/
-
-    }
-
-    TuiManager()
-        .write(layout = homeScreen)
-    TuiManager().write2File(homeScreen.getWidgets)
 }

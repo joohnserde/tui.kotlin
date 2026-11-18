@@ -1,4 +1,3 @@
-import com.sun.tools.javac.tree.TreeInfo
 import tui.kotlin.Arrangement
 import tui.kotlin.TermManager
 import tui.kotlin.Layer
@@ -21,10 +20,14 @@ open class TuiBuilder(
     // state
     private val tuiCollection = StringBuilder()
 
+    private var canvas: Canvas = Canvas(size)
+
+    /**
+     * get the ANSI code set in a way that picks up -
+     * stringLayer the most recent changes
+     */
     val getWidgets
         get() = tuiCollection
-
-    private var canvas: Canvas = Canvas(size)
 
     // canvas builder
     fun buildCanvas() {
@@ -79,7 +82,7 @@ open class TuiBuilder(
         layout.buildCanvas()
         layout.appendTui()
         tuiCollection.append(
-            layout.layer.stringLayer
+            layout.ansiCollection
         )
     }
 

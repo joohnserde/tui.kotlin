@@ -27,9 +27,13 @@ class TuiManager(
             layout.appendTui()
         }
         normalMode(layout)
-        println(layout.layer.stringLayer)
+        println(layout.ansiCollection.toString())
     }
 
+    /**
+     * write command ansi code to file.
+     * to track ansi code result from TuiBuilder
+     */
     fun write2File(
         rawContent: StringBuilder,
         fileName: String = "RAWCONTENT"
@@ -45,14 +49,20 @@ class TuiManager(
         }
     }
 
+    /**
+     * set up the terminal to be ready for writing.
+     * this method to easier to see the command ansi code escape -
+     * in the command file.
+     */
     fun writeMode(layout: Layout) {
-        layout.layer.stringLayer.insert(
+        layout.ansiCollection.insert(
             0, cursor.hideCursor().plus(cursor.saveCursor())
         )
     }
 
+
     fun normalMode(layout: Layout) {
-        layout.layer.stringLayer.append(
+        layout.ansiCollection.append(
             cursor.restoreCursor().plus(cursor.showCursor())
         )
     }
